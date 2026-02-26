@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to EnglishLike</title>
+    <meta name="description"
+        content="Welcome to EnglishLike - Premium English Institute. Begin your journey to English mastery.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0a0e1a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ========== ANIMATED BACKGROUND ========== */
+        .bg-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(30, 58, 138, 0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(99, 102, 241, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(250, 204, 21, 0.08) 0%, transparent 50%),
+                #0a0e1a;
+        }
+
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            inset: 0;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Orbiting rings */
+        .orbit-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .orbit {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(250, 204, 21, 0.06);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbitSpin linear infinite;
+        }
+
+        .orbit:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            animation-duration: 20s;
+        }
+
+        .orbit:nth-child(2) {
+            width: 450px;
+            height: 450px;
+            animation-duration: 30s;
+            animation-direction: reverse;
+            border-color: rgba(99, 102, 241, 0.06);
+        }
+
+        .orbit:nth-child(3) {
+            width: 600px;
+            height: 600px;
+            animation-duration: 40s;
+            border-color: rgba(250, 204, 21, 0.04);
+        }
+
+        .orbit:nth-child(4) {
+            width: 800px;
+            height: 800px;
+            animation-duration: 55s;
+            animation-direction: reverse;
+            border-color: rgba(99, 102, 241, 0.03);
+        }
+
+        .orbit-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(250, 204, 21, 0.5);
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.4);
+        }
+
+        .orbit:nth-child(2) .orbit-dot {
+            background: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+        }
+
+        @keyframes orbitSpin {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Logo */
+        .logo-container {
+            position: relative;
+            margin-bottom: 10px;
+            animation: logoEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes logoEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translateY(30px);
+                filter: blur(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        .logo-glow {
+            position: absolute;
+            inset: -30px;
+            background: radial-gradient(circle, rgba(250, 204, 21, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+        }
+
+        .logo-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid rgba(250, 204, 21, 0.5);
+            background: white;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+            box-shadow:
+                0 0 30px rgba(250, 204, 21, 0.15),
+                0 0 60px rgba(99, 102, 241, 0.1);
+        }
+
+        /* Title */
+        .title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            animation: titleEntrance 1s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .title-highlight {
+            background: linear-gradient(135deg, #facc15, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes titleEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(25px);
+                filter: blur(6px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        /* Subtitle */
+        .subtitle {
+            font-size: 1.15rem;
+            color: rgba(203, 213, 225, 0.8);
+            font-weight: 400;
+            max-width: 420px;
+            line-height: 1.6;
+            animation: titleEntrance 1s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        /* ========== ENTER BUTTON ========== */
+        .btn-wrapper {
+            margin-top: 20px;
+            animation: titleEntrance 1s 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            position: relative;
+        }
+
+        .btn-ring-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 70px;
+            border-radius: 50px;
+            border: 2px solid rgba(250, 204, 21, 0.2);
+            animation: ringPulse 2s ease-out infinite;
+        }
+
+        .btn-ring-pulse:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .btn-ring-pulse:nth-child(3) {
+            animation-delay: 1.2s;
+        }
+
+        @keyframes ringPulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        .enter-btn {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #0a0e1a;
+            background: linear-gradient(135deg, #facc15, #f59e0b);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                0 0 30px rgba(250, 204, 21, 0.3),
+                0 0 60px rgba(250, 204, 21, 0.1),
+                0 8px 32px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .enter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .enter-btn:hover::before {
+            left: 100%;
+        }
+
+        .enter-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow:
+                0 0 50px rgba(250, 204, 21, 0.4),
+                0 0 100px rgba(250, 204, 21, 0.15),
+                0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .enter-btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .btn-arrow {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .enter-btn:hover .btn-arrow {
+            transform: translateX(5px);
+        }
+
+        /* ========== TRANSITION OVERLAY ========== */
+        .transition-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            pointer-events: none;
+            display: none;
+        }
+
+        .transition-overlay.active {
+            display: block;
+            pointer-events: all;
+        }
+
+        /* Multiple ripple waves */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+        }
+
+        .ripple-gold {
+            background: radial-gradient(circle, rgba(250, 204, 21, 0.7) 0%, rgba(245, 158, 11, 0.4) 30%, transparent 60%);
+            animation: rippleExpand 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .ripple-blue {
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, rgba(30, 58, 138, 0.3) 30%, transparent 60%);
+            animation: rippleExpand 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .ripple-white {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.15) 25%, transparent 55%);
+            animation: rippleExpand 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes rippleExpand {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Light beams */
+        .light-beam {
+            position: absolute;
+            width: 3px;
+            height: 0;
+            transform-origin: bottom center;
+            opacity: 0;
+        }
+
+        /* Spark particles with trails */
+        .spark {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #facc15;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #facc15, 0 0 20px rgba(250, 204, 21, 0.6);
+        }
+
+        .spark-trail {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(250, 204, 21, 0.4);
+            border-radius: 50%;
+            box-shadow: 0 0 6px rgba(250, 204, 21, 0.3);
+        }
+
+        /* Vortex swirl particles */
+        .vortex-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+        }
+
+        /* Golden flash - slower and more dramatic */
+        .golden-flash {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+        }
+
+        .golden-flash.phase1 {
+            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.6) 0%, transparent 70%);
+            animation: flashPhase1 2s ease-in-out forwards;
+        }
+
+        .golden-flash.phase2 {
+            background: linear-gradient(135deg, #facc15, #f59e0b, #fbbf24);
+            animation: flashPhase2 2s ease-in-out forwards;
+        }
+
+        .golden-flash.phase3 {
+            background: #0f172a;
+            animation: flashPhase3 1.5s ease-in-out forwards;
+        }
+
+        @keyframes flashPhase1 {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes flashPhase2 {
+            0% {
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 1;
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes flashPhase3 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Content fade out - slower */
+        .content.fading {
+            animation: contentFadeOut 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes contentFadeOut {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+
+            40% {
+                opacity: 0.6;
+                transform: scale(1.03);
+                filter: blur(3px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.15);
+                filter: blur(20px);
+            }
+        }
+
+        /* Tagline fade out */
+        .tagline.fading {
+            animation: contentFadeOut 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* Dark backdrop behind logo reveal */
+        .reveal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 1001;
+            background: radial-gradient(circle at center, rgba(10, 14, 26, 0.95) 0%, rgba(10, 14, 26, 0.85) 100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .reveal-backdrop.active {
+            animation: backdropIn 3.5s ease forwards;
+        }
+
+        @keyframes backdropIn {
+            0% {
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Center logo reveal during transition */
+        .reveal-logo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 1003;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(250, 204, 21, 0.9);
+            background: white;
+            object-fit: cover;
+            opacity: 0;
+            box-shadow:
+                0 0 50px rgba(250, 204, 21, 0.6),
+                0 0 100px rgba(250, 204, 21, 0.3),
+                0 0 150px rgba(250, 204, 21, 0.15),
+                inset 0 0 20px rgba(250, 204, 21, 0.05);
+        }
+
+        .reveal-logo.active {
+            animation: logoReveal 3.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes logoReveal {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0) rotate(-90deg);
+                filter: blur(0);
+            }
+
+            12% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.15) rotate(0deg);
+                filter: blur(0);
+            }
+
+            20% {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                filter: blur(0);
+            }
+
+            35% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+                filter: blur(0);
+                box-shadow:
+                    0 0 60px rgba(250, 204, 21, 0.8),
+                    0 0 120px rgba(250, 204, 21, 0.4),
+                    0 0 200px rgba(250, 204, 21, 0.2);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                filter: blur(0);
+            }
+
+            65% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.03) rotate(0deg);
+                filter: blur(0);
+                box-shadow:
+                    0 0 80px rgba(250, 204, 21, 0.9),
+                    0 0 150px rgba(250, 204, 21, 0.5),
+                    0 0 250px rgba(250, 204, 21, 0.2);
+            }
+
+            78% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                filter: blur(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.5) rotate(0deg);
+                filter: blur(2px);
+            }
+        }
+
+        /* Shockwave ring that bursts out when logo appears */
+        .shockwave {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 1002;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid rgba(250, 204, 21, 0.6);
+            opacity: 0;
+            box-shadow: 0 0 30px rgba(250, 204, 21, 0.3);
+        }
+
+        .shockwave.active {
+            animation: shockwaveExpand 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .shockwave:nth-child(2).active {
+            animation-delay: 0.2s;
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+        }
+
+        @keyframes shockwaveExpand {
+            0% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(6);
+            }
+        }
+
+        /* Orbiting sparkles around the logo */
+        .orbit-sparkle {
+            position: fixed;
+            z-index: 1004;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Logo glow ring during reveal */
+        .reveal-ring {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 1002;
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        .reveal-ring-1 {
+            width: 200px;
+            height: 200px;
+            border: 2px solid rgba(250, 204, 21, 0.5);
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.15), inset 0 0 20px rgba(250, 204, 21, 0.05);
+        }
+
+        .reveal-ring-2 {
+            width: 280px;
+            height: 280px;
+            border: 1.5px solid rgba(99, 102, 241, 0.35);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+        }
+
+        .reveal-ring-3 {
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(250, 204, 21, 0.2);
+        }
+
+        .reveal-ring.active {
+            animation: revealRingSpin 3.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .reveal-ring-2.active {
+            animation-delay: 0.1s;
+            animation-duration: 3.8s;
+        }
+
+        .reveal-ring-3.active {
+            animation-delay: 0.2s;
+            animation-duration: 4s;
+        }
+
+        @keyframes revealRingSpin {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0) rotate(0deg);
+            }
+
+            15% {
+                opacity: 0.9;
+                transform: translate(-50%, -50%) scale(1) rotate(45deg);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1.05) rotate(180deg);
+            }
+
+            80% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(1.1) rotate(300deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.5) rotate(360deg);
+            }
+        }
+
+        /* Welcome text during transition */
+        .reveal-text {
+            position: fixed;
+            top: calc(50% + 110px);
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 1003;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            color: white;
+            opacity: 0;
+            white-space: nowrap;
+            text-shadow: 0 0 20px rgba(250, 204, 21, 0.5), 0 0 40px rgba(250, 204, 21, 0.2);
+        }
+
+        .reveal-text.active {
+            animation: revealTextAnim 3.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .reveal-text span {
+            display: inline-block;
+            opacity: 0;
+        }
+
+        @keyframes revealTextAnim {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, 25px);
+            }
+
+            15% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+
+            75% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -10px);
+            }
+        }
+
+        @keyframes revealLetterIn {
+            0% {
+                opacity: 0;
+                transform: translateY(15px) scale(0.5);
+                filter: blur(4px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        /* Bottom tagline */
+        .tagline {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            color: rgba(148, 163, 184, 0.5);
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: titleEntrance 1s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+
+            .logo-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .enter-btn {
+                padding: 16px 40px;
+                font-size: 1rem;
+            }
+
+            .orbit:nth-child(1) {
+                width: 200px;
+                height: 200px;
+            }
+
+            .orbit:nth-child(2) {
+                width: 300px;
+                height: 300px;
+            }
+
+            .orbit:nth-child(3) {
+                width: 400px;
+                height: 400px;
+            }
+
+            .orbit:nth-child(4) {
+                width: 550px;
+                height: 550px;
+            }
+
+            .reveal-logo {
+                width: 110px;
+                height: 110px;
+            }
+
+            .reveal-text {
+                font-size: 1rem;
+                letter-spacing: 6px;
+                top: calc(50% + 90px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Layer -->
+    <div class="bg-layer">
+        <div class="bg-gradient"></div>
+
+        <!-- Floating particles (generated by JS) -->
+        <div class="particles" id="particles"></div>
+
+        <!-- Orbiting rings -->
+        <div class="orbit-container">
+            <div class="orbit">
+                <div class="orbit-dot"></div>
+            </div>
+            <div class="orbit">
+                <div class="orbit-dot"></div>
+            </div>
+            <div class="orbit">
+                <div class="orbit-dot"></div>
+            </div>
+            <div class="orbit"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content" id="mainContent">
+        <div class="logo-container">
+            <div class="logo-glow"></div>
+            <img src="assets/Logo.png" alt="EnglishLike" class="logo-img">
+        </div>
+
+        <h1 class="title">
+            Welcome to<br>
+            <span class="title-highlight">EnglishLike</span>
+        </h1>
+
+        <p class="subtitle">
+            Your journey to fluent, confident English begins here. Step inside and discover your potential.
+        </p>
+
+        <div class="btn-wrapper">
+            <div class="btn-ring-pulse"></div>
+            <div class="btn-ring-pulse"></div>
+            <div class="btn-ring-pulse"></div>
+            <button class="enter-btn" id="enterBtn" onclick="triggerTransition(event)">
+                Enter
+                <span class="btn-arrow">→</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Tagline at bottom -->
+    <div class="tagline" id="tagline">Use language to connect, inspire & grow</div>
+
+    <!-- Transition Overlay -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
+
+    <!-- Reveal elements (hidden initially) -->
+    <div class="reveal-backdrop" id="revealBackdrop"></div>
+    <div class="shockwave" id="shockwave1"></div>
+    <div class="shockwave" id="shockwave2"></div>
+    <img src="assets/Logo.png" alt="" class="reveal-logo" id="revealLogo">
+    <div class="reveal-ring reveal-ring-1" id="revealRing1"></div>
+    <div class="reveal-ring reveal-ring-2" id="revealRing2"></div>
+    <div class="reveal-ring reveal-ring-3" id="revealRing3"></div>
+    <div class="reveal-text" id="revealText"></div>
+
+    <script>
+        // ============ GENERATE FLOATING PARTICLES ============
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 40;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            const size = Math.random() * 4 + 1;
+            const left = Math.random() * 100;
+            const duration = Math.random() * 15 + 10;
+            const delay = Math.random() * 15;
+            const isGold = Math.random() > 0.6;
+
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = left + '%';
+            particle.style.animationDuration = duration + 's';
+            particle.style.animationDelay = delay + 's';
+            particle.style.background = isGold
+                ? `rgba(250, 204, 21, ${Math.random() * 0.4 + 0.1})`
+                : `rgba(99, 102, 241, ${Math.random() * 0.3 + 0.1})`;
+            particle.style.boxShadow = isGold
+                ? `0 0 ${size * 2}px rgba(250, 204, 21, 0.3)`
+                : `0 0 ${size * 2}px rgba(99, 102, 241, 0.2)`;
+
+            particlesContainer.appendChild(particle);
+        }
+
+        // ============ CINEMATIC TRANSITION ============
+        function triggerTransition(e) {
+            const btn = document.getElementById('enterBtn');
+            const overlay = document.getElementById('transitionOverlay');
+            const content = document.getElementById('mainContent');
+            const tagline = document.getElementById('tagline');
+
+            // Disable button immediately
+            btn.style.pointerEvents = 'none';
+
+            // Get button center for effects origin
+            const btnRect = btn.getBoundingClientRect();
+            const cx = btnRect.left + btnRect.width / 2;
+            const cy = btnRect.top + btnRect.height / 2;
+            const maxDim = Math.max(window.innerWidth, window.innerHeight) * 2;
+
+            // ---- PHASE 1: Button shrink + haptic (0ms) ----
+            btn.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            btn.style.transform = 'scale(0.9)';
+            btn.style.boxShadow = '0 0 80px rgba(250, 204, 21, 0.6), 0 0 150px rgba(250, 204, 21, 0.3)';
+
+            // ---- PHASE 2: Content fade + tagline fade (300ms) ----
+            setTimeout(() => {
+                content.classList.add('fading');
+                tagline.classList.add('fading');
+                overlay.classList.add('active');
+            }, 300);
+
+            // ---- PHASE 3: Triple ripple waves (500ms, staggered) ----
+            setTimeout(() => {
+                // Gold ripple
+                createRipple(overlay, cx, cy, maxDim, 'ripple-gold', 0);
+                // Blue ripple (delayed)
+                createRipple(overlay, cx, cy, maxDim, 'ripple-blue', 400);
+                // White ripple (more delayed)
+                createRipple(overlay, cx, cy, maxDim, 'ripple-white', 800);
+            }, 500);
+
+            // ---- PHASE 4: Spark explosion (600ms) ----
+            setTimeout(() => {
+                createSparkExplosion(overlay, cx, cy, 50);
+            }, 600);
+
+            // ---- PHASE 5: Light beams from center (1000ms) ----
+            setTimeout(() => {
+                createLightBeams(overlay, cx, cy, 10);
+            }, 1000);
+
+            // ---- PHASE 6: Vortex swirl particles (1500ms) ----
+            setTimeout(() => {
+                createVortex(overlay, cx, cy, 30);
+            }, 1500);
+
+            // ---- PHASE 7: Dark backdrop + Golden flash phase 1 (1800ms) ----
+            setTimeout(() => {
+                document.getElementById('revealBackdrop').classList.add('active');
+                const flash1 = document.createElement('div');
+                flash1.classList.add('golden-flash', 'phase1');
+                overlay.appendChild(flash1);
+            }, 1800);
+
+            // ---- PHASE 8: Logo reveal + shockwaves + rings + sparkles + text (2200ms) ----
+            setTimeout(() => {
+                // Shockwave rings
+                document.getElementById('shockwave1').classList.add('active');
+                document.getElementById('shockwave2').classList.add('active');
+
+                // Logo
+                document.getElementById('revealLogo').classList.add('active');
+
+                // Spinning rings
+                document.getElementById('revealRing1').classList.add('active');
+                document.getElementById('revealRing2').classList.add('active');
+                document.getElementById('revealRing3').classList.add('active');
+
+                // Orbiting sparkles around the logo
+                createOrbitSparkles(8);
+
+                // Animated text reveal
+                const revealText = document.getElementById('revealText');
+                const text = 'E N G L I S H L I K E';
+                revealText.innerHTML = '';
+                text.split('').forEach((char, i) => {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    span.style.animation = `revealLetterIn 0.5s ${i * 0.04}s cubic-bezier(0.16, 1, 0.3, 1) forwards`;
+                    revealText.appendChild(span);
+                });
+                revealText.classList.add('active');
+            }, 2200);
+
+            // ---- PHASE 9: Golden flash phase 2 - full screen gold (4800ms) ----
+            setTimeout(() => {
+                const flash2 = document.createElement('div');
+                flash2.classList.add('golden-flash', 'phase2');
+                overlay.appendChild(flash2);
+            }, 4800);
+
+            // ---- PHASE 10: Fade to dark (5600ms) ----
+            setTimeout(() => {
+                const flash3 = document.createElement('div');
+                flash3.classList.add('golden-flash', 'phase3');
+                overlay.appendChild(flash3);
+            }, 5600);
+
+            // ---- PHASE 11: Navigate to homepage (6500ms) ----
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 6500);
+        }
+
+        // ---- HELPER: Create ripple ----
+        function createRipple(overlay, cx, cy, maxDim, className, delay) {
+            setTimeout(() => {
+                const ripple = document.createElement('div');
+                ripple.classList.add('ripple', className);
+                ripple.style.width = maxDim + 'px';
+                ripple.style.height = maxDim + 'px';
+                ripple.style.left = (cx - maxDim / 2) + 'px';
+                ripple.style.top = (cy - maxDim / 2) + 'px';
+                overlay.appendChild(ripple);
+            }, delay);
+        }
+
+        // ---- HELPER: Spark explosion with trails ----
+        function createSparkExplosion(overlay, cx, cy, count) {
+            for (let i = 0; i < count; i++) {
+                const spark = document.createElement('div');
+                spark.classList.add('spark');
+                spark.style.left = cx + 'px';
+                spark.style.top = cy + 'px';
+
+                const angle = (Math.PI * 2 * i) / count + (Math.random() * 0.3);
+                const distance = Math.random() * 400 + 200;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                const dur = Math.random() * 1.2 + 0.8;
+
+                spark.style.transition = `all ${dur}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+                overlay.appendChild(spark);
+
+                // Create trailing sparks
+                for (let t = 0; t < 3; t++) {
+                    const trail = document.createElement('div');
+                    trail.classList.add('spark-trail');
+                    trail.style.left = cx + 'px';
+                    trail.style.top = cy + 'px';
+                    const trailDist = distance * (0.3 + t * 0.2);
+                    const trailDur = dur * (0.5 + t * 0.15);
+                    trail.style.transition = `all ${trailDur}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+                    overlay.appendChild(trail);
+
+                    setTimeout(() => {
+                        trail.style.transform = `translate(${Math.cos(angle) * trailDist}px, ${Math.sin(angle) * trailDist}px)`;
+                        trail.style.opacity = '0';
+                    }, 30 + t * 50);
+                }
+
+                requestAnimationFrame(() => {
+                    spark.style.transform = `translate(${tx}px, ${ty}px)`;
+                    spark.style.opacity = '0';
+                });
+            }
+        }
+
+        // ---- HELPER: Light beams from center ----
+        function createLightBeams(overlay, cx, cy, count) {
+            for (let i = 0; i < count; i++) {
+                const beam = document.createElement('div');
+                beam.classList.add('light-beam');
+                beam.style.left = cx + 'px';
+                beam.style.top = cy + 'px';
+
+                const angle = (360 / count) * i;
+                const isGold = i % 2 === 0;
+                beam.style.background = isGold
+                    ? 'linear-gradient(to top, rgba(250, 204, 21, 0.6), transparent)'
+                    : 'linear-gradient(to top, rgba(99, 102, 241, 0.4), transparent)';
+                beam.style.transform = `rotate(${angle}deg)`;
+                beam.style.transformOrigin = 'bottom center';
+
+                beam.style.transition = `height 1.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.5s ease`;
+                overlay.appendChild(beam);
+
+                setTimeout(() => {
+                    beam.style.height = (Math.random() * 300 + 400) + 'px';
+                    beam.style.opacity = '0.7';
+                }, 50 + i * 80);
+
+                // Fade out beams
+                setTimeout(() => {
+                    beam.style.opacity = '0';
+                }, 1800 + i * 50);
+            }
+        }
+
+        // ---- HELPER: Vortex swirl particles ----
+        function createVortex(overlay, cx, cy, count) {
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.classList.add('vortex-particle');
+                const isGold = Math.random() > 0.5;
+                const size = Math.random() * 4 + 2;
+
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                p.style.background = isGold ? 'rgba(250, 204, 21, 0.8)' : 'rgba(99, 102, 241, 0.6)';
+                p.style.boxShadow = isGold
+                    ? '0 0 8px rgba(250, 204, 21, 0.5)'
+                    : '0 0 8px rgba(99, 102, 241, 0.4)';
+
+                // Start at random positions around screen edges
+                const startAngle = (Math.PI * 2 * i) / count;
+                const startDist = Math.random() * 200 + 300;
+                const startX = cx + Math.cos(startAngle) * startDist;
+                const startY = cy + Math.sin(startAngle) * startDist;
+
+                p.style.left = startX + 'px';
+                p.style.top = startY + 'px';
+                overlay.appendChild(p);
+
+                // Animate spiraling inward
+                const dur = Math.random() * 1 + 1.5;
+                p.style.transition = `all ${dur}s cubic-bezier(0.4, 0, 0.2, 1)`;
+
+                setTimeout(() => {
+                    // Spiral toward center with slight offset
+                    const endOffsetAngle = startAngle + Math.PI * 1.5;
+                    const endDist = Math.random() * 30;
+                    p.style.left = (cx + Math.cos(endOffsetAngle) * endDist) + 'px';
+                    p.style.top = (cy + Math.sin(endOffsetAngle) * endDist) + 'px';
+                    p.style.opacity = '0';
+                    p.style.transform = `scale(0.2)`;
+                }, 100 + i * 40);
+            }
+        }
+
+        // ---- HELPER: Orbiting sparkles around logo ----
+        function createOrbitSparkles(count) {
+            const screenCx = window.innerWidth / 2;
+            const screenCy = window.innerHeight / 2;
+
+            for (let i = 0; i < count; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('orbit-sparkle');
+
+                const isGold = i % 2 === 0;
+                const size = Math.random() * 4 + 5;
+                sparkle.style.width = size + 'px';
+                sparkle.style.height = size + 'px';
+                sparkle.style.background = isGold
+                    ? 'rgba(250, 204, 21, 0.9)'
+                    : 'rgba(99, 102, 241, 0.8)';
+                sparkle.style.boxShadow = isGold
+                    ? `0 0 ${size * 2}px rgba(250, 204, 21, 0.6), 0 0 ${size * 4}px rgba(250, 204, 21, 0.3)`
+                    : `0 0 ${size * 2}px rgba(99, 102, 241, 0.5), 0 0 ${size * 4}px rgba(99, 102, 241, 0.2)`;
+
+                document.body.appendChild(sparkle);
+
+                // Animate orbit
+                const radius = 110 + Math.random() * 40;
+                const speed = 2 + Math.random() * 1.5;
+                const startAngle = (Math.PI * 2 * i) / count;
+                let angle = startAngle;
+                let elapsed = 0;
+                const maxTime = 3200;
+
+                function animate() {
+                    elapsed += 16;
+                    angle += (speed * 0.02);
+
+                    const x = screenCx + Math.cos(angle) * radius - size / 2;
+                    const y = screenCy + Math.sin(angle) * radius - size / 2;
+                    sparkle.style.left = x + 'px';
+                    sparkle.style.top = y + 'px';
+
+                    // Fade in then out
+                    const progress = elapsed / maxTime;
+                    if (progress < 0.15) {
+                        sparkle.style.opacity = progress / 0.15;
+                    } else if (progress > 0.8) {
+                        sparkle.style.opacity = (1 - progress) / 0.2;
+                    } else {
+                        sparkle.style.opacity = 1;
+                    }
+
+                    if (elapsed < maxTime) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        sparkle.remove();
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+        }
+    </script>
+</body>
+
+</html>
